@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "9433fd3a-d9aa-4ec7-b426-eb5521c4f0a9",
+		"name": "MASUMAR-POC_URN_NBN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1192155",
+		"_collection_link": "https://bkn-squad.postman.co/workspace/BRIN~138f20a2-30b7-4e2d-bcf2-c71c3dadf747/collection/1192155-9433fd3a-d9aa-4ec7-b426-eb5521c4f0a9?action=share&source=collection_link&creator=1192155"
+	},
+	"item": [
+		{
+			"name": "admin prefixes",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 123456789",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:85/admin/prefixes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "85",
+					"path": [
+						"admin",
+						"prefixes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin registrants",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 123456789",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"metadata\": {\n    \"title\": \"Example Title\",\n    \"description\": \"Example Description\",\n    \"author\": \"Example Author\",\n    \"year\": 2023\n  },\n  \"locations\": [\n    \"http://example.com/location1\",\n    \"http://example.com/location2\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:85/admin/registrants",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "85",
+					"path": [
+						"admin",
+						"registrants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add registrant",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 123456789",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"prefix\": \"20.500.12690\",\r\n      \"name\": \"BRIN\",\r\n      \"id\": 2,\r\n      \"email\": \"koharudin.mail07@gmail.com\",\r\n      \"token\": \"mysecret-token2\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:85/add-registrant",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "85",
+					"path": [
+						"add-registrant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register-prefix",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer mysecret-token2",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"metadata\": {\r\n    \"title\": \"a\",\r\n    \"description\": \"b\",\r\n    \"author\": \"c\",\r\n    \"year\": 2014\r\n  },\r\n  \"locations\": [\r\n    \"https://www.google.com/search?q=express+docker+swagger&sca_esv=458dc05ad97e3dfc&sxsrf=ADLYWIJO49whiZhW6r83yWHfGuNSMcsGQg%3A1736740884364&ei=FJCEZ9D5FbSF4-EP0uDD-Q4&ved=0ahUKEwjQ0-r75_GKAxW0wjgGHVLwMO8Q4dUDCBA&uact=5&oq=express+docker+swagger&gs_lp=Egxnd3Mtd2l6LXNlcnAiFmV4cHJlc3MgZG9ja2VyIHN3YWdnZXIyCBAAGIAEGMsBMggQABiABBjLATIIEAAYgAQYywEyBRAAGIAEMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeMggQABgWGAoYHjIGEAAYFhgeMgYQABgWGB5I2BZQ6QNYqRZwAXgBkAEAmAFMoAFMqgEBMbgBA8gBAPgBAZgCAqACUsICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFmAMAiAYBkAYHkgcBMqAHwwU&sclient=gws-wiz-serp\"\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:85/register/20.500.12690",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "85",
+					"path": [
+						"register",
+						"20.500.12690"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail prefix",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer mysecret-token2",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"metadata\": {\r\n    \"title\": \"a\",\r\n    \"description\": \"b\",\r\n    \"author\": \"c\",\r\n    \"year\": 2014\r\n  },\r\n  \"locations\": [\r\n    \"https://www.google.com/search?q=express+docker+swagger&sca_esv=458dc05ad97e3dfc&sxsrf=ADLYWIJO49whiZhW6r83yWHfGuNSMcsGQg%3A1736740884364&ei=FJCEZ9D5FbSF4-EP0uDD-Q4&ved=0ahUKEwjQ0-r75_GKAxW0wjgGHVLwMO8Q4dUDCBA&uact=5&oq=express+docker+swagger&gs_lp=Egxnd3Mtd2l6LXNlcnAiFmV4cHJlc3MgZG9ja2VyIHN3YWdnZXIyCBAAGIAEGMsBMggQABiABBjLATIIEAAYgAQYywEyBRAAGIAEMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeMggQABgWGAoYHjIGEAAYFhgeMgYQABgWGB5I2BZQ6QNYqRZwAXgBkAEAmAFMoAFMqgEBMbgBA8gBAPgBAZgCAqACUsICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFmAMAiAYBkAYHkgcBMqAHwwU&sclient=gws-wiz-serp\"\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:85/urn:nbn:id:20.500.12690-4d740a8a0d454fa1b23c038a49280a78?redirect=false",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "85",
+					"path": [
+						"urn:nbn:id:20.500.12690-4d740a8a0d454fa1b23c038a49280a78"
+					],
+					"query": [
+						{
+							"key": "redirect",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
