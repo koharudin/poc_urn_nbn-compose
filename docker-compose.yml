@@ -1,0 +1,10 @@
+services:
+  poc_app:
+    build: 
+      context: app_urn_nbn
+      dockerfile: Dockerfile
+    tty: true
+    ports:
+      - 85:10124
+
+    
