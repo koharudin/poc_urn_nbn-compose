@@ -1,0 +1,23 @@
+services:
+  urn_nbn_backend:
+    build: 
+      context: app_urn_nbn
+      dockerfile: Dockerfile
+    tty: true
+    ports:
+      - 85:10124
+  urn_nbn_admin:
+    build:
+      context: .
+      dockerfile : Dockerfile-dev-urn-nbn-admin
+    tty : true
+    environment:
+      - BASE_URL=http://localhost:81
+    volumes:
+      - ./urn_nbn_admin:/app
+    command: "npm run dev"
+    ports:
+      - 83:3000   
+
+
+    

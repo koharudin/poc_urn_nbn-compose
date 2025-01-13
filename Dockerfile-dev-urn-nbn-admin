@@ -1,0 +1,6 @@
+FROM node:alpine
+WORKDIR /app
+
+COPY ./urn_nbn_admin/package.json package.json
+
+RUN yarn install 

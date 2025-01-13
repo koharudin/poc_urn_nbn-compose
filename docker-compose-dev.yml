@@ -1,0 +1,37 @@
+services:
+  db:  
+    image : postgres:11.21-bullseye
+    ports:
+      - 5432:5432
+    volumes:
+      - ./docker-dev-volumes/postgresql_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: 'postgres_db'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'postgres'
+  urn_nbn_backend:
+    build: 
+      context: app_urn_nbn
+      dockerfile: Dockerfile
+    tty: true
+    ports:
+      - 85:10124
+    environment:
+      - DB_DIALECT=postgresql
+      - DB_URL=//postgres:postgres@host.docker.internal:5432/db
+    depends_on:
+      - db
+  urn_nbn_admin:
+    build:
+      context: .
+      dockerfile : Dockerfile-dev-urn-nbn-admin
+    tty : true
+    environment:
+      - BASE_URL=http://localhost:81
+    volumes:
+      - ./urn_nbn_admin:/app
+      - /app/node_modules
+    ports:
+      - 83:3000
+    depends_on:
+      - db 
