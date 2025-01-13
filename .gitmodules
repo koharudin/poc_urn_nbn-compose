@@ -1,3 +1,6 @@
 [submodule "app_urn_nbn"]
 	path = app_urn_nbn
 	url = https://github.com/koharudin/poc-urn_nbn.git
+[submodule "urn_nbn_admin"]
+	path = urn_nbn_admin
+	url = https://github.com/koharudin/urn_nbn_admin.git
